@@ -14,7 +14,7 @@ To use add the `felspar-exceptions` and `felspar-test` libraries to your project
 
 ## `felspar::overflow_error`
 
-Mirrors the standard library type but includes source location together with value information.
+Mirrors the standard library type but includes source location together with value information. It can also be used as a drop in replacement for `std::overflow_error` and can be caught as such, where it will only add the source location information to the `what()` string.
 
 ```cpp
 throw felspar::overflow_error{"Too large", 3};
