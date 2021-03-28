@@ -29,7 +29,7 @@ Might be reported as:
 Where an overflow is used to report a value that is too large, the limit value can also be given:
 
 ```cpp
-throw felspar::overflow_error{std::string{"Wrong number of wheels"}, 5, 4};
+throw felspar::overflow_error{"Wrong number of wheels", 5, 4};
 ```
 
 The report will look like:

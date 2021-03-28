@@ -19,22 +19,13 @@ namespace felspar {
 
       public:
         explicit overflow_error(
-                std::string const &m,
+                std::string m,
                 V v = {},
                 std::optional<V> mx = {},
                 source_location loc = source_location::current())
         : v{v},
           mx{mx},
-          source_annotation<std::overflow_error>{loc, annotate(m, loc, v, mx)} {
-        }
-        explicit overflow_error(
-                char const *m,
-                V v = {},
-                std::optional<V> mx = {},
-                source_location loc = source_location::current())
-        : v{v},
-          mx{mx},
-          source_annotation<std::overflow_error>{loc, annotate(m, loc, v, mx)} {
+          source_annotation<std::overflow_error>{loc, annotate(std::move(m), loc, v, mx)} {
         }
 
       protected:
@@ -59,25 +50,17 @@ namespace felspar {
       public:
         /// Standard constructors
         explicit overflow_error(
-                std::string const &m,
+                std::string m,
                 source_location loc = source_location::current())
-        : source_annotation<std::overflow_error>{loc, annotate(m, loc)} {}
-        explicit overflow_error(
-                char const *m, source_location loc = source_location::current())
-        : source_annotation<std::overflow_error>{loc, annotate(m, loc)} {}
+        : source_annotation<std::overflow_error>{loc, annotate(std::move(m), loc)} {}
     };
 
 
     overflow_error(std::string const &)->overflow_error<void>;
-    overflow_error(char const *)->overflow_error<void>;
     template<typename V>
     overflow_error(std::string const &, V) -> overflow_error<V>;
     template<typename V>
-    overflow_error(char const *, V) -> overflow_error<V>;
-    template<typename V>
     overflow_error(std::string const &, V, V) -> overflow_error<V>;
-    template<typename V>
-    overflow_error(char const *, V, V) -> overflow_error<V>;
 
 
 }
