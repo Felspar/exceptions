@@ -1,8 +1,7 @@
 #pragma once
 
 
-#include <exception>
-#include <felspar/exceptions/source_annotation.hpp>
+#include <felspar/exceptions/overflow_error.hpp>
 
 
 namespace felspar {
