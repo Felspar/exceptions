@@ -22,6 +22,10 @@ namespace {
         check([]() {
             throw felspar::overflow_error{std::string{"Some error"}, 3};
         }).throws(felspar::overflow_error<int>{"Some error"});
+        check([]() {
+            throw felspar::overflow_error{
+                    std::string{"Wrong number of wheels"}, 5, 4};
+        }).throws(felspar::overflow_error<int>{"Wrong number of wheels"});
     });
 
 
