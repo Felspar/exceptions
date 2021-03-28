@@ -11,8 +11,15 @@ To use add the `felspar-exceptions` and `felspar-test` libraries to your project
 #include <felspar/exception.hpp>
 ```
 
+Individual exceptions also have their own headers.
+
 
 ## `felspar::overflow_error`
+
+```cpp
+#include <felspar/exception.hpp> // convenience header
+#include <felspar/exceptions/overflow_error.hpp> // specific header
+```
 
 Mirrors the standard library type but includes source location together with value information. It can also be used as a drop in replacement for `std::overflow_error` and can be caught as such, where it will only add the source location information to the `what()` string.
 
