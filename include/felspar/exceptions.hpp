@@ -2,6 +2,7 @@
 
 
 #include <felspar/exceptions/overflow_error.hpp>
+#include <felspar/exceptions/underflow_error.hpp>
 
 
 namespace felspar {
