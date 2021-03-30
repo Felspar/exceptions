@@ -8,6 +8,16 @@ namespace {
     auto const suite = felspar::testsuite("overflow");
 
 
+    auto const c = suite.test("construct", [](auto check) {
+        felspar::overflow_error{
+                "Some text", felspar::source_location::current()};
+        felspar::overflow_error{
+                "Some text", 4.5, felspar::source_location::current()};
+        felspar::overflow_error{
+                "Some text", 4.5, 3.0, felspar::source_location::current()};
+    });
+
+
     auto const v = suite.test("void", [](auto check) {
         check([]() {
             throw felspar::overflow_error{std::string{"Some error"}};

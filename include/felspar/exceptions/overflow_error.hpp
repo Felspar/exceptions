@@ -25,8 +25,13 @@ namespace felspar {
                 source_location loc = source_location::current())
         : v{v},
           mx{mx},
-          source_annotation<std::overflow_error>{loc, annotate(std::move(m), loc, v, mx)} {
-        }
+          source_annotation<std::overflow_error>{
+                  loc, annotate(std::move(m), loc, v, mx)} {}
+        overflow_error(std::string m, V v, source_location loc)
+        : v{v},
+          mx{},
+          source_annotation<std::overflow_error>{
+                  loc, annotate(std::move(m), loc, v, {})} {}
 
       protected:
         static std::string annotate(
@@ -34,8 +39,8 @@ namespace felspar {
             if (mx) {
                 return source_annotation<std::overflow_error>::annotate(
                                std::move(m), loc)
-                        + "\nRequired less than (or equal to) "
-                        + std::to_string(*mx) + " and got " + std::to_string(v);
+                        + "\nLimit " + std::to_string(*mx) + " and value is "
+                        + std::to_string(v);
             } else {
                 return source_annotation<std::overflow_error>::annotate(
                                std::move(m), loc)
@@ -50,17 +55,16 @@ namespace felspar {
       public:
         /// Standard constructors
         explicit overflow_error(
-                std::string m,
-                source_location loc = source_location::current())
-        : source_annotation<std::overflow_error>{loc, annotate(std::move(m), loc)} {}
+                std::string m, source_location loc = source_location::current())
+        : source_annotation<std::overflow_error>{
+                loc, annotate(std::move(m), loc)} {}
     };
 
 
     overflow_error(std::string const &)->overflow_error<void>;
-    template<typename V>
-    overflow_error(std::string const &, V) -> overflow_error<V>;
-    template<typename V>
-    overflow_error(std::string const &, V, V) -> overflow_error<V>;
+    overflow_error(std::string const &, source_location)->overflow_error<void>;
+    template<typename V, typename... Args>
+    overflow_error(std::string const &, V, Args...) -> overflow_error<V>;
 
 
 }
