@@ -11,8 +11,6 @@ To use add the `felspar-exceptions` and `felspar-test` libraries to your project
 #include <felspar/exception.hpp>
 ```
 
-Individual exceptions also have their own headers.
-
 For all of the exception types an extra source location can be explicitly provided to customise the captured source location:
 
 ```cpp
@@ -29,6 +27,24 @@ V const &at(std::vector<V> const &v, std::size_t const pos,
 ```
 
 The source location will be now be reported as the call site of the `at` function rather than where the exception is thrown.
+
+
+## `felspar::logic_error` and `felspar::runtime_error`
+
+```cpp
+#include <felspar/exceptions.hpp>
+```
+
+Mirrors the standard library types and includes source location information. They can still be caught as their standard types, `std::logic_error` or `std::runtime_error`, and the source location will be in the `what()` string.
+
+```cpp
+throw felspar::runtime_error{"An error message"};
+```
+
+Might be reported as:
+
+    An error message
+    ../../exceptions/test/run/runtime.cpp:19:19
 
 
 ## `felspar::overflow_error` and `felspar::underflow_error`
