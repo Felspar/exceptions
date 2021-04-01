@@ -23,15 +23,13 @@ namespace felspar {
                 V v = {},
                 std::optional<V> mx = {},
                 source_location loc = source_location::current())
-        : v{v},
-          mx{mx},
-          source_annotation<std::underflow_error>{
-                  loc, annotate(std::move(m), loc, v, mx)} {}
+        : source_annotation<std::underflow_error>{
+                  loc, annotate(std::move(m), loc, v, mx)}, v{v},
+          mx{mx} {}
         underflow_error(std::string m, V v, source_location loc)
-        : v{v},
-          mx{},
-          source_annotation<std::underflow_error>{
-                  loc, annotate(std::move(m), loc, v, {})} {}
+        : source_annotation<std::underflow_error>{
+                  loc, annotate(std::move(m), loc, v, {})}, v{v},
+          mx{} {}
 
       protected:
         static std::string annotate(
