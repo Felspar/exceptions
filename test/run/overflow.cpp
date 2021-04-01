@@ -10,7 +10,7 @@ namespace {
     auto const suite = felspar::testsuite("overflow");
 
 
-    auto const c = suite.test("construct", [](auto check) {
+    auto const c = suite.test("construct", [](auto) {
         felspar::overflow_error{
                 "Some text", felspar::source_location::current()};
         felspar::overflow_error{
