@@ -23,13 +23,14 @@ namespace felspar {
                 V v = {},
                 std::optional<V> mx = {},
                 source_location loc = source_location::current())
-        : source_annotation<std::overflow_error>{
-                  loc, annotate(std::move(m), loc, v, mx)}, v{v},
-          mx{mx}
-           {}
+        : source_annotation<
+                std::overflow_error>{loc, annotate(std::move(m), loc, v, mx)},
+          v{v},
+          mx{mx} {}
         overflow_error(std::string m, V v, source_location loc)
-        : source_annotation<std::overflow_error>{
-                  loc, annotate(std::move(m), loc, v, {})}, v{v},
+        : source_annotation<
+                std::overflow_error>{loc, annotate(std::move(m), loc, v, {})},
+          v{v},
           mx{} {}
 
       protected:
