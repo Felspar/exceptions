@@ -19,10 +19,10 @@ namespace {
 
     auto const t = suite.test("throw", [](auto check) {
         check([]() {
-            throw felspar::system_error{std::error_code{}, "Message"};
+            throw felspar::system_error{std::error_code{}, "Message\n"};
         }).throws(felspar::system_error{std::error_code{}, "Message"});
         check([]() {
-            throw felspar::system_error{std::error_code{}, "Message"};
+            throw felspar::system_error{std::error_code{}, "Message\n"};
         }).throws(std::system_error{std::error_code{}, "Message"});
     });
 
