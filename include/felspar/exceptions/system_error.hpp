@@ -2,6 +2,7 @@
 
 
 #include <felspar/exceptions/source_annotation.hpp>
+#include <functional>
 #include <system_error>
 
 
