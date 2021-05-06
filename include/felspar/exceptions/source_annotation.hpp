@@ -15,9 +15,7 @@ namespace felspar::exceptions {
         felspar::source_location loc;
 
       public:
-        source_annotation(auto l = source_location::current()) noexcept
-        : loc{std::move(l)} {}
-
+        /// Return the throw site source code location information
         auto const &thrown_from() const { return loc; }
 
       protected:
@@ -34,6 +32,11 @@ namespace felspar::exceptions {
                 annotate(std::string m, felspar::source_location loc) {
             return m + "\n" + loc.file_name() + ":" + std::to_string(loc.line())
                     + ":" + std::to_string(loc.column());
+        }
+        static std::string annotate(felspar::source_location loc) {
+            return std::string{loc.file_name()} + ":"
+                    + std::to_string(loc.line()) + ":"
+                    + std::to_string(loc.column());
         }
     };
 
