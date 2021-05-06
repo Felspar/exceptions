@@ -8,7 +8,7 @@ namespace {
     auto const suite = felspar::testsuite("underflow");
 
 
-    auto const c = suite.test("construct", [](auto) {
+    auto const c = suite.test("construct", []() {
         felspar::underflow_error{
                 "Some text", felspar::source_location::current()};
         felspar::underflow_error{

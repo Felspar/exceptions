@@ -8,7 +8,7 @@ namespace {
     auto const suite = felspar::testsuite("runtime");
 
 
-    auto const c = suite.test("construct", [](auto) {
+    auto const c = suite.test("construct", []() {
         felspar::runtime_error{"Error message"};
         felspar::runtime_error{std::string{"Error message"}};
     });
