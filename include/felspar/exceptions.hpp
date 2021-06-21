@@ -11,6 +11,7 @@ namespace felspar {
 
 
     using exception = exceptions::source_annotation<std::exception>;
+    using length_error = exceptions::messaging_error<std::length_error>;
     using logic_error = exceptions::messaging_error<std::logic_error>;
     using runtime_error = exceptions::messaging_error<std::runtime_error>;
 

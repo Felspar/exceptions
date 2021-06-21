@@ -29,13 +29,13 @@ V const &at(std::vector<V> const &v, std::size_t const pos,
 The source location will be now be reported as the call site of the `at` function rather than where the exception is thrown.
 
 
-## `felspar::logic_error`, `felspar::runtime_error` and `felspar::system_error`
+## `felspar::length_error`, `felspar::logic_error`, `felspar::runtime_error` and `felspar::system_error`
 
 ```cpp
 #include <felspar/exceptions.hpp>
 ```
 
-Mirrors the standard library types and includes source location information. They can still be caught as their standard types, `std::logic_error` or `std::runtime_error` or `std::system_error`, and the source location will be in the `what()` string.
+Mirrors the standard library types and includes source location information. They can still be caught as their standard types, `felspar::length_error` or `std::logic_error` or `std::runtime_error` or `std::system_error`, and the source location will be in the `what()` string.
 
 ```cpp
 throw felspar::runtime_error{"An error message"};
