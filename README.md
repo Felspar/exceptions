@@ -126,3 +126,14 @@ Results in:
 
     felspar::stdexcept::bad_alloc
     ../../test/run/bad_alloc.cpp:23:0
+
+The exception is also extended to take an optional error message:
+
+```cpp
+throw felspar::stdexcept::bad_alloc{"Allocation error message"};
+```
+
+Results in:
+
+    Allocation error message
+    ../../test/run/bad_alloc.cpp:14:0

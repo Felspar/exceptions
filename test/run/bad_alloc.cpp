@@ -10,8 +10,8 @@ namespace {
 
     auto const c = suite.test("construct", []() {
         felspar::stdexcept::bad_alloc{};
-        // felspar::stdexcept::bad_alloc{"Error message"};
-        // felspar::stdexcept::bad_alloc{std::string{"Error message"}};
+        felspar::stdexcept::bad_alloc{"Error message"};
+        felspar::stdexcept::bad_alloc{std::string{"Error message"}};
     });
 
 
@@ -22,9 +22,9 @@ namespace {
         check([]() {
             throw felspar::stdexcept::bad_alloc{};
         }).template throws_type<std::bad_alloc>();
-        // check([]() {
-        //     throw felspar::stdexcept::bad_alloc{"An error message"};
-        // }).throws(felspar::stdexcept::bad_alloc{"An error message"});
+        check([]() {
+            throw felspar::stdexcept::bad_alloc{"An error message"};
+        }).throws(felspar::stdexcept::bad_alloc{"An error message"});
     });
 
 
