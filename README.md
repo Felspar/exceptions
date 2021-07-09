@@ -84,7 +84,6 @@ The report will look like:
 
 Similarly with `felspar::stdexcept::underflow_error`:
 
-
 ```cpp
 throw felspar::stdexcept::underflow_error{"Too small", 3};
 ```
@@ -106,3 +105,24 @@ As:
     Too few items
     ../../exceptions/test/run/underflow.cpp:32:0
     Limit 6 and value is 4
+
+
+## `felspar::stdexcept::bad_alloc`
+
+```cpp
+#include <felspar/exception.hpp> // convenience header
+#include <felspar/exceptions/bad_alloc.hpp> // specific header
+```
+
+This standard version of this exception takes no arguments, but the throw location is still captured by `felspar::stdexcept::bad_alloc`.
+
+Throwing the exception normally:
+
+```cpp
+throw felspar::stdexcept::bad_alloc{};
+```
+
+Results in:
+
+    felspar::stdexcept::bad_alloc
+    ../../test/run/bad_alloc.cpp:23:0

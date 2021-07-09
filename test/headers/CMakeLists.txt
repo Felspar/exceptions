@@ -1,4 +1,5 @@
 add_library(felspar-exception-headers-tests STATIC EXCLUDE_FROM_ALL
+        bad_alloc.cpp
         exceptions.cpp
         messaging_error.cpp
         overflow_error.cpp
