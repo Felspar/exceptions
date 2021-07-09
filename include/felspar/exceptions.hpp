@@ -7,7 +7,7 @@
 #include <felspar/exceptions/underflow_error.hpp>
 
 
-namespace felspar {
+namespace felspar::stdexcept {
 
 
     using exception = exceptions::source_annotation<std::exception>;

@@ -10,19 +10,23 @@ namespace {
 
     auto const c = suite.test("construct", []() {
         felspar::source_location loc = felspar::source_location::current();
-        felspar::system_error{std::error_code{}, loc};
-        felspar::system_error{std::error_code{}, "What ho!"};
-        felspar::system_error{0, std::system_category()};
-        felspar::system_error{0, std::system_category(), "What no!"};
+        felspar::stdexcept::system_error{std::error_code{}, loc};
+        felspar::stdexcept::system_error{std::error_code{}, "What ho!"};
+        felspar::stdexcept::system_error{0, std::system_category()};
+        felspar::stdexcept::system_error{0, std::system_category(), "What no!"};
     });
 
 
     auto const t = suite.test("throw", [](auto check) {
         check([]() {
-            throw felspar::system_error{std::error_code{}, "Message\n"};
-        }).throws(felspar::system_error{std::error_code{}, "Message\n"});
+            throw felspar::stdexcept::system_error{
+                    std::error_code{}, "Message\n"};
+        })
+                .throws(felspar::stdexcept::system_error{
+                        std::error_code{}, "Message\n"});
         check([]() {
-            throw felspar::system_error{std::error_code{}, "Message\n"};
+            throw felspar::stdexcept::system_error{
+                    std::error_code{}, "Message\n"};
         }).throws(std::system_error{std::error_code{}, "Message\n"});
     });
 

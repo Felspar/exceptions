@@ -6,7 +6,7 @@
 #include <stdexcept>
 
 
-namespace felspar {
+namespace felspar::stdexcept {
 
 
     /// Annotated mathematical underflow exception. Includes value and minimum

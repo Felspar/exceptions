@@ -6,7 +6,7 @@
 #include <stdexcept>
 
 
-namespace felspar {
+namespace felspar::stdexcept {
 
 
     /// Annotated mathematical overflow exception. Includes value and maximum

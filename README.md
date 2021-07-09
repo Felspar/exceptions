@@ -18,7 +18,8 @@ template<typename V>
 V const &at(std::vector<V> const &v, std::size_t const pos,
         felspar::source_location loc = felspar::source_location::current()) {
     if (pos >= v.size()) {
-        throw felspar::overflow_error{"Requested index beyond vector bound",
+        throw felspar::stdexcept::overflow_error{
+                "Requested index beyond vector bound",
                 pos, v.size(), std::move(loc)};
     } else {
         return v[pos];
@@ -28,17 +29,19 @@ V const &at(std::vector<V> const &v, std::size_t const pos,
 
 The source location will be now be reported as the call site of the `at` function rather than where the exception is thrown.
 
+All wrappers for `std::` exceptions are in the `felspar::stdexcept::` namespace.
 
-## `felspar::length_error`, `felspar::logic_error`, `felspar::runtime_error` and `felspar::system_error`
+
+## `felspar::stdexcept::length_error`, `felspar::stdexcept::logic_error`, `felspar::stdexcept::runtime_error` and `felspar::stdexcept::system_error`
 
 ```cpp
 #include <felspar/exceptions.hpp>
 ```
 
-Mirrors the standard library types and includes source location information. They can still be caught as their standard types, `felspar::length_error` or `std::logic_error` or `std::runtime_error` or `std::system_error`, and the source location will be in the `what()` string.
+Mirrors the standard library types and includes source location information. They can still be caught as their standard types, `std::length_error` or `std::logic_error` or `std::runtime_error` or `std::system_error`, and the source location will be in the `what()` string.
 
 ```cpp
-throw felspar::runtime_error{"An error message"};
+throw felspar::stdexcept::runtime_error{"An error message"};
 ```
 
 Might be reported as:
@@ -47,7 +50,7 @@ Might be reported as:
     ../../exceptions/test/run/runtime.cpp:19:19
 
 
-## `felspar::overflow_error` and `felspar::underflow_error`
+## `felspar::stdexcept::overflow_error` and `felspar::stdexcept::underflow_error`
 
 ```cpp
 #include <felspar/exception.hpp> // convenience header
@@ -58,7 +61,7 @@ Might be reported as:
 Mirrors the standard library types but includes source location together with value information. They can also be used as a drop in replacement for `std::overflow_error` and `std::underflow_error` and can be caught as such, where it will only add the source location information to the `what()` string.
 
 ```cpp
-throw felspar::overflow_error{"Too large", 3};
+throw felspar::stdexcept::overflow_error{"Too large", 3};
 ```
 
 Might be reported as:
@@ -70,7 +73,7 @@ Might be reported as:
 Where an overflow is used to report a value that is too large, the limit value can also be given:
 
 ```cpp
-throw felspar::overflow_error{"Wrong number of wheels", 5, 4};
+throw felspar::stdexcept::overflow_error{"Wrong number of wheels", 5, 4};
 ```
 
 The report will look like:
@@ -79,11 +82,11 @@ The report will look like:
     ../../test/run/overflow.cpp:25:0
     Limit 4 and value is 5
 
-Similarly with `felspar::underflow_error`:
+Similarly with `felspar::stdexcept::underflow_error`:
 
 
 ```cpp
-throw felspar::underflow_error{"Too small", 3};
+throw felspar::stdexcept::underflow_error{"Too small", 3};
 ```
 
 As:
@@ -95,7 +98,7 @@ As:
 And:
 
 ```cpp
-throw felspar::overflow_error{"Too few items", 4, 6};
+throw felspar::stdexcept::overflow_error{"Too few items", 4, 6};
 ```
 
 As:

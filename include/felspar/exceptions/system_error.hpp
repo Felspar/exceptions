@@ -6,7 +6,7 @@
 #include <system_error>
 
 
-namespace felspar {
+namespace felspar::stdexcept {
 
 
     class system_error :
