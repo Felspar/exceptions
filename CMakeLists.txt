@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.10)
 project(felspar-exceptions)
 
 if(CMAKE_SOURCE_DIR STREQUAL PROJECT_SOURCE_DIR)
-    add_custom_target(check)
+    add_custom_target(felspar-check)
     include(requirements.cmake)
 endif()
 
@@ -11,7 +11,7 @@ target_include_directories(felspar-exceptions INTERFACE include)
 target_compile_features(felspar-exceptions INTERFACE cxx_std_20)
 target_link_libraries(felspar-exceptions INTERFACE felspar-test)
 
-if(TARGET check)
-    set_property(TARGET check PROPERTY EXCLUDE_FROM_ALL TRUE)
+if(TARGET felspar-check)
+    set_property(TARGET felspar-check PROPERTY EXCLUDE_FROM_ALL TRUE)
     add_subdirectory(test)
 endif()
