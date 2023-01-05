@@ -1,9 +1,11 @@
-# Felspar exceptions
+# Felspar Exceptions
 
 **Annotated exceptions for C++ 20**
 
 These exceptions allow for capture of source location information (typically the throw site). Some exceptions may also capture other information.
 
+
+## Basic usage
 
 To use add the `felspar-exceptions` and `felspar-test` libraries to your project and include the utility header:
 
@@ -14,13 +16,13 @@ To use add the `felspar-exceptions` and `felspar-test` libraries to your project
 For all of the exception types an extra source location can be explicitly provided to customise the captured source location:
 
 ```cpp
-template<typename V>
+template<typename V> inline
 V const &at(std::vector<V> const &v, std::size_t const pos,
-        felspar::source_location loc = felspar::source_location::current()) {
+        felspar::source_location const &loc = felspar::source_location::current()) {
     if (pos >= v.size()) {
         throw felspar::stdexcept::overflow_error{
                 "Requested index beyond vector bound",
-                pos, v.size(), std::move(loc)};
+                pos, v.size(), loc};
     } else {
         return v[pos];
     }
