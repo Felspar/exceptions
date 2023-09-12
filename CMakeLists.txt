@@ -10,6 +10,7 @@ add_library(felspar-exceptions INTERFACE)
 target_include_directories(felspar-exceptions INTERFACE include)
 target_compile_features(felspar-exceptions INTERFACE cxx_std_20)
 target_link_libraries(felspar-exceptions INTERFACE felspar-test)
+install(DIRECTORY ./include/felspar DESTINATION include)
 
 if(TARGET felspar-check)
     set_property(TARGET felspar-check PROPERTY EXCLUDE_FROM_ALL TRUE)
