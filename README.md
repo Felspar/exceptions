@@ -2,7 +2,32 @@
 
 **Annotated exceptions for C++ 20**
 
+[![GitHub](https://badgen.net/badge/Github/felspar-exceptions/green?icon=github)](https://github.com/Felspar/io)
+[![Discord](https://badgen.net/badge/icon/discord?icon=discord&label)](https://discord.gg/tKSabUa52v)
+
 These exceptions allow for capture of source location information (typically the throw site). Some exceptions may also capture other information.
+
+
+## Using the library
+
+The library is designed to be easy to use from CMake projects. To use it add it in your source tree somewhere and then use `add_subdirectory` to include it in your project. The library also requires the use of some other libraries which can get by using an `include`. So if you have the library in a folder called `felspar-exceptions`, you can add the following to your `CMakeLists.txt`:
+
+```cmake
+add_subdirectory(felspar-exceptions)
+```
+
+To make use of the library add `felspar-exceptions` in your `target_link_libraries` directive.
+
+```cmake
+target_link_libraries(your-app otherlib1 otherlib2 felspar-exceptions)
+```
+
+If you want to build the tests then add `felspar-check` as a target before the `add_subdirectory` and then add `felspar-check` to the targets you build.
+
+```cmake
+add_custom_target(felspar-check)
+add_subdirectory(felspar-exceptions)
+```
 
 
 ## Basic usage
