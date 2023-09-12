@@ -3,6 +3,7 @@
 **Annotated exceptions for C++ 20**
 
 [![GitHub](https://badgen.net/badge/Github/felspar-exceptions/green?icon=github)](https://github.com/Felspar/io)
+[![License](https://badgen.net/github/license/Felspar/io)](https://github.com/Felspar/exceptions/blob/main/LICENSE_1_0.txt)
 [![Discord](https://badgen.net/badge/icon/discord?icon=discord&label)](https://discord.gg/tKSabUa52v)
 
 These exceptions allow for capture of source location information (typically the throw site). Some exceptions may also capture other information.
