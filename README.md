@@ -1,12 +1,13 @@
 # Felspar Exceptions
 
-**Annotated exceptions for C++ 20**
+**Annotated exceptions for C++**
 
-[![GitHub](https://badgen.net/badge/Github/felspar-exceptions/green?icon=github)](https://github.com/Felspar/io)
-[![License](https://badgen.net/github/license/Felspar/io)](https://github.com/Felspar/exceptions/blob/main/LICENSE_1_0.txt)
+[![Documentation](https://badgen.net/static/docs/felspar.com)](https://felspar.com/exceptions/)
+[![GitHub](https://badgen.net/badge/Github/felspar-exceptions/green?icon=github)](https://github.com/Felspar/exceptions)
+[![License](https://badgen.net/github/license/Felspar/exceptions)](https://github.com/Felspar/exceptions/blob/main/LICENSE_1_0.txt)
 [![Discord](https://badgen.net/badge/icon/discord?icon=discord&label)](https://discord.gg/tKSabUa52v)
 
-These exceptions allow for capture of source location information (typically the throw site). Some exceptions may also capture other information.
+**felspar-exceptions** is a library that provides exceptions types that capture source location information (typically the throw site). Some exceptions may also capture other information
 
 
 ## Using the library
@@ -15,6 +16,7 @@ The library is designed to be easy to use from CMake projects. To use it add it 
 
 ```cmake
 add_subdirectory(felspar-exceptions)
+include(felspar-coro/requirements.cmake)
 ```
 
 To make use of the library add `felspar-exceptions` in your `target_link_libraries` directive.
