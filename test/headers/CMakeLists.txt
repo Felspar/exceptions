@@ -12,8 +12,7 @@ if(TARGET felspar-check)
             system_error.cpp
             underflow_error.cpp
         )
-    target_link_libraries(felspar-exception-headers-tests felspar-exceptions)
+    target_link_libraries(felspar-exception-headers-tests PRIVATE felspar-exceptions)
 
     add_dependencies(felspar-check felspar-exception-headers-tests)
 endif()
-
