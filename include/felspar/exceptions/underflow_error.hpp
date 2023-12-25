@@ -61,8 +61,9 @@ namespace felspar::stdexcept {
     };
 
 
-    underflow_error(std::string const &)->underflow_error<void>;
-    underflow_error(std::string const &, source_location)->underflow_error<void>;
+    underflow_error(std::string const &) -> underflow_error<void>;
+    underflow_error(std::string const &, source_location)
+            -> underflow_error<void>;
     template<typename V, typename... Args>
     underflow_error(std::string const &, V, Args...) -> underflow_error<V>;
 

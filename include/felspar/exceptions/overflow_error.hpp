@@ -61,8 +61,9 @@ namespace felspar::stdexcept {
     };
 
 
-    overflow_error(std::string const &)->overflow_error<void>;
-    overflow_error(std::string const &, source_location)->overflow_error<void>;
+    overflow_error(std::string const &) -> overflow_error<void>;
+    overflow_error(std::string const &, source_location)
+            -> overflow_error<void>;
     template<typename V, typename... Args>
     overflow_error(std::string const &, V, Args...) -> overflow_error<V>;
 
