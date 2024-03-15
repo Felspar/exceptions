@@ -30,15 +30,28 @@ namespace felspar::exceptions {
         /// the source location information in the message
         static std::string
                 annotate(std::string m, felspar::source_location loc) {
-            return m + "\n" + loc.file_name() + ":" + std::to_string(loc.line())
-                    + ":" + std::to_string(loc.column());
+            m += "\n";
+            m += loc.file_name();
+            m += ":";
+            m += std::to_string(loc.line());
+            m += ":";
+            m += std::to_string(loc.column());
+            m += ":";
+            return m;
         }
         static std::string annotate(felspar::source_location loc) {
-            return std::string{loc.file_name()} + ":"
-                    + std::to_string(loc.line()) + ":"
-                    + std::to_string(loc.column());
+            std::string m{loc.file_name()};
+            m += loc.file_name();
+            m += ":";
+            m += std::to_string(loc.line());
+            m += ":";
+            m += std::to_string(loc.column());
+            m += ":";
+            return m;
         }
     };
+
+
 
 
 }
