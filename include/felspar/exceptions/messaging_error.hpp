@@ -16,7 +16,7 @@ namespace felspar::exceptions {
                 felspar::source_location loc =
                         felspar::source_location::current())
         : source_annotation<E>{
-                loc, source_annotation<E>::annotate(std::move(m), loc)} {}
+                  loc, source_annotation<E>::annotate(std::move(m), loc)} {}
     };
 
 

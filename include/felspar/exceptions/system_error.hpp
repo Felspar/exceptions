@@ -21,20 +21,20 @@ namespace felspar::stdexcept {
                 std::string m,
                 source_location loc = source_location::current())
         : source_annotation<std::system_error>{
-                loc, ec, annotate(std::move(m), loc)} {}
+                  loc, ec, annotate(std::move(m), loc)} {}
         system_error(
                 int const ev,
                 std::error_category const &ecat,
                 source_location loc = source_location::current())
         : source_annotation<std::system_error>{
-                loc, ev, std::cref(ecat), annotate(loc)} {}
+                  loc, ev, std::cref(ecat), annotate(loc)} {}
         system_error(
                 int const ev,
                 std::error_category const &ecat,
                 std::string m,
                 source_location loc = source_location::current())
         : source_annotation<std::system_error>{
-                loc, ev, std::cref(ecat), annotate(std::move(m), loc)} {}
+                  loc, ev, std::cref(ecat), annotate(std::move(m), loc)} {}
     };
 
 

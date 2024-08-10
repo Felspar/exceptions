@@ -24,9 +24,9 @@ namespace {
         check([]() {
             throw felspar::stdexcept::overflow_error{std::string{"Some error"}};
         }).throws(felspar::stdexcept::overflow_error{"Some error"});
-        check([]() { throw felspar::stdexcept::overflow_error{"Some error"}; })
-                .throws(felspar::stdexcept::overflow_error{
-                        std::string{"Some error"}});
+        check([]() {
+            throw felspar::stdexcept::overflow_error{"Some error"};
+        }).throws(felspar::stdexcept::overflow_error{std::string{"Some error"}});
     });
 
 

@@ -52,6 +52,4 @@ namespace felspar::exceptions {
     };
 
 
-
-
 }

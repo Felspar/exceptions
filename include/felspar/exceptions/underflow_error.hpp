@@ -24,12 +24,12 @@ namespace felspar::stdexcept {
                 std::optional<V> mx = {},
                 source_location loc = source_location::current())
         : source_annotation<
-                std::underflow_error>{loc, annotate(std::move(m), loc, v, mx)},
+                  std::underflow_error>{loc, annotate(std::move(m), loc, v, mx)},
           v{v},
           mx{mx} {}
         underflow_error(std::string m, V v, source_location loc)
         : source_annotation<
-                std::underflow_error>{loc, annotate(std::move(m), loc, v, {})},
+                  std::underflow_error>{loc, annotate(std::move(m), loc, v, {})},
           v{v},
           mx{} {}
 
@@ -57,7 +57,7 @@ namespace felspar::stdexcept {
         explicit underflow_error(
                 std::string m, source_location loc = source_location::current())
         : source_annotation<std::underflow_error>{
-                loc, annotate(std::move(m), loc)} {}
+                  loc, annotate(std::move(m), loc)} {}
     };
 
 

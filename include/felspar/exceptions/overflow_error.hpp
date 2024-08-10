@@ -24,12 +24,12 @@ namespace felspar::stdexcept {
                 std::optional<V> mx = {},
                 source_location loc = source_location::current())
         : source_annotation<
-                std::overflow_error>{loc, annotate(std::move(m), loc, v, mx)},
+                  std::overflow_error>{loc, annotate(std::move(m), loc, v, mx)},
           v{v},
           mx{mx} {}
         overflow_error(std::string m, V v, source_location loc)
         : source_annotation<
-                std::overflow_error>{loc, annotate(std::move(m), loc, v, {})},
+                  std::overflow_error>{loc, annotate(std::move(m), loc, v, {})},
           v{v},
           mx{} {}
 
@@ -57,13 +57,12 @@ namespace felspar::stdexcept {
         explicit overflow_error(
                 std::string m, source_location loc = source_location::current())
         : source_annotation<std::overflow_error>{
-                loc, annotate(std::move(m), loc)} {}
+                  loc, annotate(std::move(m), loc)} {}
     };
 
 
     overflow_error(std::string const &) -> overflow_error<void>;
-    overflow_error(std::string const &, source_location)
-            -> overflow_error<void>;
+    overflow_error(std::string const &, source_location) -> overflow_error<void>;
     template<typename V, typename... Args>
     overflow_error(std::string const &, V, Args...) -> overflow_error<V>;
 
