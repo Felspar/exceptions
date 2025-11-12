@@ -12,11 +12,11 @@ namespace {
 
     auto const c = suite.test("construct", []() {
         felspar::stdexcept::overflow_error{
-                "Some text", felspar::source_location::current()};
+                "Some text", std::source_location::current()};
         felspar::stdexcept::overflow_error{
-                "Some text", 4.5, felspar::source_location::current()};
+                "Some text", 4.5, std::source_location::current()};
         felspar::stdexcept::overflow_error{
-                "Some text", 4.5, 3.0, felspar::source_location::current()};
+                "Some text", 4.5, 3.0, std::source_location::current()};
     });
 
 
@@ -45,10 +45,10 @@ namespace {
 
 
     template<typename V>
-    V const &at(
-            std::vector<V> const &v,
-            std::size_t const pos,
-            felspar::source_location loc = felspar::source_location::current()) {
+    V const &
+            at(std::vector<V> const &v,
+               std::size_t const pos,
+               std::source_location loc = std::source_location::current()) {
         if (pos >= v.size()) {
             throw felspar::stdexcept::overflow_error{
                     "Requested index beyond vector bound", pos, v.size(),
@@ -58,7 +58,7 @@ namespace {
         }
     }
     auto const a = suite.test("at", [](auto check) {
-        auto const loc = felspar::source_location::current();
+        auto const loc = std::source_location::current();
         auto eptr = check([&]() {
                         std::vector<int> v;
                         at(v, 3, loc);

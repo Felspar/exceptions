@@ -9,7 +9,7 @@ namespace {
 
 
     auto const c = suite.test("construct", []() {
-        felspar::source_location loc = felspar::source_location::current();
+        auto const loc = std::source_location::current();
         felspar::stdexcept::system_error{std::error_code{}, loc};
         felspar::stdexcept::system_error{std::error_code{}, "What ho!"};
         felspar::stdexcept::system_error{0, std::system_category()};

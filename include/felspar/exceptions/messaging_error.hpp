@@ -13,8 +13,7 @@ namespace felspar::exceptions {
       public:
         messaging_error(
                 std::string m,
-                felspar::source_location loc =
-                        felspar::source_location::current())
+                std::source_location loc = std::source_location::current())
         : source_annotation<E>{
                   loc, source_annotation<E>::annotate(std::move(m), loc)} {}
     };

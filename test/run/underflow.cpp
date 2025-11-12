@@ -10,9 +10,9 @@ namespace {
 
     auto const c = suite.test("construct", []() {
         felspar::stdexcept::underflow_error{
-                "Some text", felspar::source_location::current()};
+                "Some text", std::source_location::current()};
         felspar::stdexcept::underflow_error{
-                "Some text", 4.5, 6.0, felspar::source_location::current()};
+                "Some text", 4.5, 6.0, std::source_location::current()};
     });
 
 

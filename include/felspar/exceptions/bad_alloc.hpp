@@ -11,11 +11,13 @@ namespace felspar::stdexcept {
         std::string msg;
 
       public:
-        explicit bad_alloc(source_location loc = source_location::current())
+        explicit bad_alloc(
+                std::source_location loc = std::source_location::current())
         : source_annotation<std::bad_alloc>{loc},
           msg{annotate("felspar::stdexcept::bad_alloc", loc)} {}
         explicit bad_alloc(
-                std::string m, source_location loc = source_location::current())
+                std::string m,
+                std::source_location loc = std::source_location::current())
         : source_annotation<std::bad_alloc>{loc},
           msg{annotate(std::move(m), loc)} {}
 
