@@ -3,6 +3,7 @@
 
 #include <felspar/exceptions/bad_alloc.hpp>
 #include <felspar/exceptions/exception.hpp>
+#include <felspar/exceptions/invalid_argument.hpp>
 #include <felspar/exceptions/length_error.hpp>
 #include <felspar/exceptions/logic_error.hpp>
 #include <felspar/exceptions/messaging_error.hpp>
