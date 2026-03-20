@@ -38,7 +38,7 @@ add_subdirectory(felspar-exceptions)
 To use add the `felspar-exceptions` and `felspar-test` libraries to your project and include the utility header:
 
 ```cpp
-#include <felspar/exception.hpp>
+#include <felspar/exceptions.hpp>
 ```
 
 For all of the exception types an extra source location can be explicitly provided to customise the captured source location:
@@ -83,7 +83,7 @@ Might be reported as:
 ## `felspar::stdexcept::overflow_error` and `felspar::stdexcept::underflow_error`
 
 ```cpp
-#include <felspar/exception.hpp> // convenience header
+#include <felspar/exceptions.hpp> // convenience header
 #include <felspar/exceptions/overflow_error.hpp> // specific header
 #include <felspar/exceptions/underflow_error.hpp> // specific header
 ```
@@ -140,7 +140,7 @@ As:
 ## `felspar::stdexcept::bad_alloc`
 
 ```cpp
-#include <felspar/exception.hpp> // convenience header
+#include <felspar/exceptions.hpp> // convenience header
 #include <felspar/exceptions/bad_alloc.hpp> // specific header
 ```
 
