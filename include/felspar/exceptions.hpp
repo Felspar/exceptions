@@ -7,6 +7,7 @@
 #include <felspar/exceptions/length_error.hpp>
 #include <felspar/exceptions/logic_error.hpp>
 #include <felspar/exceptions/messaging_error.hpp>
+#include <felspar/exceptions/out_of_range.hpp>
 #include <felspar/exceptions/overflow_error.hpp>
 #include <felspar/exceptions/runtime_error.hpp>
 #include <felspar/exceptions/system_error.hpp>
