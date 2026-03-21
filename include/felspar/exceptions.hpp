@@ -3,9 +3,12 @@
 
 #include <felspar/exceptions/bad_alloc.hpp>
 #include <felspar/exceptions/exception.hpp>
+#include <felspar/exceptions/domain_error.hpp>
+#include <felspar/exceptions/invalid_argument.hpp>
 #include <felspar/exceptions/length_error.hpp>
 #include <felspar/exceptions/logic_error.hpp>
 #include <felspar/exceptions/messaging_error.hpp>
+#include <felspar/exceptions/out_of_range.hpp>
 #include <felspar/exceptions/overflow_error.hpp>
 #include <felspar/exceptions/runtime_error.hpp>
 #include <felspar/exceptions/system_error.hpp>
